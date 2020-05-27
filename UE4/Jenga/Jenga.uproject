@@ -1,0 +1,16 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{9978463B-D1DA-479B-809A-5F7FC7A2A50F}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "Jenga",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	]
+}
