@@ -1,18 +1,18 @@
 ## Main Plan
 
 ### Camera Control
-    * Generate a pawn class to use control the camera
-    *
+* Generate a pawn class to use control the camera. It is named camerman in this game.
+*
 
 
 ### Pawn class plan
 
-    * The pawn class can only move with click events.
+* The pawn class can only move with click events.
 
 
 
 ### Questions to Discuss
-    * What's the role of Pawn and Playercontroller
+* What's the role of Pawn and Playercontroller
 
 
 ### Components

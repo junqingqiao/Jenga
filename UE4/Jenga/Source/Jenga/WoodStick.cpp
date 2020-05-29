@@ -11,6 +11,7 @@ AWoodStick::AWoodStick()
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
 	VisibleComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("VisiableMesh"));
 	VisibleComponent->SetupAttachment(RootComponent);
+	VisibleComponent->SetSimulatePhysics(false);
 	
 	
 }
@@ -26,5 +27,6 @@ void AWoodStick::BeginPlay()
 void AWoodStick::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	this->VisibleComponent->AddForce(FVector(0,0,0.1));
 }
 

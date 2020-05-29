@@ -30,6 +30,6 @@ void UWoodStickComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+    // Force the wood to run physics simulation by adding force on each of them
 }
 

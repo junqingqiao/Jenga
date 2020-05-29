@@ -69,14 +69,14 @@ void Acameraman::Tick(float DeltaTime)
 			// Move the camera to the hit point
 			// this->SetActorLocation(TraceHitResult.Location);
 			// this->AddMovementInput(TraceHitResult.Location, 1);
-			if(TraceHitResult.GetActor())
-			{
-				if(TraceHitResult.GetActor()->IsRootComponentMovable())
-				{
-					UStaticMeshComponent* MeshRootComp = Cast<UStaticMeshComponent>(TraceHitResult.GetActor()->GetRootComponent());
-					MeshRootComp->AddForce(FocusCamera->GetForwardVector()*PushForce);
-				}
-			}
+			// if(TraceHitResult.GetActor())
+			// {
+			// 	if(TraceHitResult.GetActor()->IsRootComponentMovable())
+			// 	{
+			// 		//UStaticMeshComponent* MeshRootComp = Cast<UStaticMeshComponent>(TraceHitResult.GetActor()->GetRootComponent());
+			// 		//MeshRootComp->AddForce(FocusCamera->GetForwardVector()*PushForce);
+			// 	}
+			// }
 		}
 	}
 }

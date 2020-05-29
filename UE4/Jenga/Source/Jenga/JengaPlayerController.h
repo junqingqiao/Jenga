@@ -68,11 +68,18 @@ class JENGA_API AJengaPlayerController : public APlayerController
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AWoodStick* selectedWood;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float XForceScale = 1000.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float YForceScale = 1000.f;
+
 	// The cameraPawn
 	Acameraman* cameraman;
 
 	private:
 	AWoodStick* interactingWood;
+	FHitResult interactingHitResult;
 	
 
 };

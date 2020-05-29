@@ -51,8 +51,7 @@ void AJengaPlayerController::OnMouseLeftPressed()
         case(FREE_MODE):
         {
             // Detect whether the cursor is touch the wood stick.
-            FHitResult hitResult;
-            AWoodStick* hitWood = cameraman->GetWoodCursorHit(hitResult);
+            AWoodStick* hitWood = cameraman->GetWoodCursorHit(interactingHitResult);
             if(hitWood != NULL)
             {
                 controlMode = INTERACT_MODE;
@@ -69,7 +68,7 @@ void AJengaPlayerController::OnMouseLeftReleased()
 {
     // If the pressed and released position is the same, then enter the selection mode.
     // Otherwise do nothing
-    
+    controlMode = FREE_MODE;
 
 }
 
@@ -92,15 +91,42 @@ void AJengaPlayerController::DragMouseX(float Axis)
             cameraman->DragCameraX(Axis);
             break;
         }
+        case(INTERACT_MODE):
+        {
+            // Start to interact with the wood
+            // Generate a X direction Force which is parallel to the ground and perpendicular to the Normal of the hitResult
+            // Normal*Z
+            FVector forceDirection = FVector::CrossProduct(interactingHitResult.Normal, FVector(0,0,1));
+            forceDirection.Normalize();
+            FVector force = forceDirection*Axis*XForceScale;
+            interactingWood->VisibleComponent->AddForce(force);
+            
+        }
     }
     
 }
 
 void AJengaPlayerController::DragMouseY(float Axis)
 {
-    if(controlMode == CAMERA_MODE)
+    switch(controlMode)
     {
-        cameraman->DragCameraY(Axis);
+        case(CAMERA_MODE):
+        {
+            cameraman->DragCameraY(Axis);
+            break;
+        }
+        case(INTERACT_MODE):
+        {
+            // Start to interact with the wood
+            // Generate a X direction Force which is parallel to the ground and perpendicular to the Normal of the hitResult
+            // Normal*Z
+            FVector forceDirection = interactingHitResult.Normal;
+            forceDirection.Normalize();
+            FVector force = forceDirection*Axis*(-YForceScale);
+            interactingWood->VisibleComponent->AddForce(force);
+            
+            UE_LOG(LogTemp, Warning, TEXT("Y force: (%f, %f, %f)"), force.X, force.Y, force.Z);
+        }
     }
     
 }

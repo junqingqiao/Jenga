@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{14F2BE0B-894D-4D01-B1AB-F195F95CA769}",
+	"EngineAssociation": "{3932D51D-0719-4737-9BA4-9BAD94F0C523}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -11,6 +11,12 @@
 			"AdditionalDependencies": [
 				"Engine"
 			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "ChaosSolverPlugin",
+			"Enabled": true
 		}
 	]
 }
