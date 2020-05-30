@@ -27,6 +27,6 @@ void AWoodStick::BeginPlay()
 void AWoodStick::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	this->VisibleComponent->AddForce(FVector(0,0,0.1));
+	//this->VisibleComponent->AddForce(FVector(0,0,0.1));
 }
 
